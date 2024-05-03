@@ -1,44 +1,36 @@
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#ifndef CONTACT_H
+# define CONTACT_H
 
-#include <iostream>
-#include <cctype>
-#include <iomanip>
+# include <iostream>
+# include <iomanip>
 
+enum Display{
+	full,
+	less
+};
 
-class	Contact
-{
+class Contact {
 	public:
+
 		Contact();
 		~Contact();
 
-		const std::string	FillData(std::string form);
-		void	MakeData(size_t index);
-		bool	ValidIndex(size_t index);
-		void	DisplaySampleContact();
-		void	DisplayFullContact();
+		void setContact(size_t index);
+		void DisplayContact(Display type) const;
 
 	private:
-		void	SetIndex_(size_t index);
-		void	SetFirstName_();
-		void	SetLastName_();
-		void	SetNickName_();
-		void	SetPhoneNumber_();
-		void	SetDarkestSecret_();
-
-		size_t	GetIndex_();
-		const std::string	GetFirstName_();
-		const std::string	GetLastName_();
-		const std::string	GetNickName_();
-		const std::string	GetPhoneNumber_();
-		const std::string	GetDarkestSecret_();
-
 		size_t	index_;
-		std::string	first_name_;
-		std::string	last_name_;
+		std::string first_name_;
+		std::string last_name_;
 		std::string nick_name_;
 		std::string phone_number_;
 		std::string darkest_secret_;
+
+		void getStringInput_(std::string& str, std::string message);
+		void getNumberInput_(std::string& str, std::string message);
+
+		void LessOutput_(const std::string source) const;
+		void cleanInput_();
 };
 
 #endif

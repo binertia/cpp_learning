@@ -1,23 +1,21 @@
-#ifndef PHONE_BOOK_HPP
-#define PHONE_BOOK_HPP
+#ifndef PHONEBOOK_H
+# define PHONEBOOK_H
 
-#include "Contact.hpp"
-
-enum action {
-	Add,
-	Search,
-};
+# include "Contact.hpp"
 
 class PhoneBook {
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void Process(size_t act);
 
+		void addContact();
+		void searchContact() const;
 	private:
 		Contact contact_[8];
-		void	AddContact_();
-		void	SearchContact_(); 
-		size_t	MatchContact_() const;
+		size_t	contact_count_;
+
+		bool validNumeric_(const std::string input) const;
+		void cleanInput_();
 };
+
 #endif
