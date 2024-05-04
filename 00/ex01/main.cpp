@@ -4,10 +4,11 @@ int	main(void) {
 	PhoneBook phone_book;
 	std::string input = "";
 
+	phone_book.initMessage();
 	while (true) {
-		std::cout << "command : " << std::flush;
-		std::cin >> input;
+		std::cout << "cmd :: " << std::flush;
 
+		std::getline(std::cin, input);
 		if (!input.compare("ADD")) {
 			phone_book.addContact();
 		} else if (!input.compare("SEARCH")) {
@@ -17,7 +18,10 @@ int	main(void) {
 			break ;
 		} else if (std::cin.eof()) {
 			exit(130);
-		} else {
+		} else if (!std::cin.good() ||input.empty()) {
+			std::cout << "dota 2" << std::endl;
+		}
+		else {
 			std::cout << "Command not found" << std::endl;
 		}
 	}

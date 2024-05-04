@@ -8,6 +8,7 @@ class PhoneBook {
 		PhoneBook();
 		~PhoneBook();
 
+		void initMessage();
 		void addContact();
 		void searchContact() const;
 	private:
