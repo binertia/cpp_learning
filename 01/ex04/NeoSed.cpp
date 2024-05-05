@@ -58,11 +58,13 @@ size_t	NeoSed::searchAndReplace() {
 		size_t pos = 0;
 		while (true) {
 			pos = line.find(getSearchPattern(), pos);
-			if (pos == 0 || pos == std::string::npos)
+			if (pos == std::string::npos)
 				break;
 			line.erase(pos, getSearchPatternLen());
 			line.insert(pos, getReplacePattern());
 			pos += getReplacePattern().length();
+			if (getSearchPatternLen() == 0 && getReplacePattern().length() == 0)
+                pos++;
 		}
 		file_out << line << "\n";
 	}
