@@ -47,7 +47,9 @@ void	Contact::getStringInput_(std::string& str, std::string message) {
 	while (true) {
 		std::cout << "Fill " << message << " : " << std::flush;
 		std::getline(std::cin, str);
-		if (str.empty() || !std::cin.good()) {
+		if (std::cin.eof()) {
+			std::exit(130);
+		} else if (str.empty() || !std::cin.good()) {
 			std::cin.clear();
 			std::cout << "Sorry, We can't take empty input. try again" << std::endl;
 		} else {

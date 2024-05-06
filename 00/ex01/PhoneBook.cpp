@@ -56,9 +56,9 @@ void	PhoneBook::searchContact() const {
 	while(true) {
 		std::cout << "Contact : " << std::flush;
 		std::getline(std::cin, input);
-		if (!std::cin.good() || input.empty() || !validNumeric_(input) || input.size() > 7 || std::cin.eof()) {
-			if (std::cin.eof())
-				exit(130);
+		if (std::cin.eof()) {
+			std::exit(130);
+		} else if (!std::cin.good() || input.empty() || !validNumeric_(input) || input.size() > 7 ) {
 			std::cin.clear();
 			std::cout << "Look like it is bad input , try again <3" << std::endl;
 		} else {
