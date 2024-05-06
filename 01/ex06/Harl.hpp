@@ -19,8 +19,9 @@ class Harl {
 		void info_();
 		void warning_();
 		void error_();
+		void etc_();
 		
-		function_ptr function_ptr_[4];
+		function_ptr function_ptr_[5];
 };
 
 #endif
